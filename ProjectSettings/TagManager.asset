@@ -8,13 +8,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Armature
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Hands
+  - PlayerBody
+  - PostProcessing
+  - Not in Reflection
   - 
   - 
   - 

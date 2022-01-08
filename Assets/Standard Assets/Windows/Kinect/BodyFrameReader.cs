@@ -113,7 +113,7 @@ namespace Windows.Kinect
             lock(callbackList)
             {
                 var objThis = Helper.NativeObjectCache.GetObject<BodyFrameReader>(pNative);
-                var args = new Windows.Kinect.BodyFrameArrivedEventArgs(result);
+                var args = new BodyFrameArrivedEventArgs(result);
                 foreach(var func in callbackList)
                 {
                     Helper.EventPump.Instance.Enqueue(() => { try { func(objThis, args); } catch { } });

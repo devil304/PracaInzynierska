@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,12 @@ public static class EEGDataExchange
 {
     public static event BasicVoid CloseEEG;
 
+    public volatile static float Raw, Poor, Attension, Meditation;
+
+    public static Action OnEEGUpdate;
+
     public static void InitCloseEEG()
     {
-        CloseEEG.Invoke();
+        CloseEEG?.Invoke();
     }
 }
