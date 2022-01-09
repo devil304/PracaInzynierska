@@ -6,7 +6,7 @@ using UnityEngine;
 public class DisplayEEGVal : MonoBehaviour
 {
 
-    [SerializeField] TextMeshProUGUI Poor, Raw, Attention, Meditation;
+    [SerializeField] TextMeshProUGUI Poor, Raw, Attention, Meditation, DataBlock;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +17,15 @@ public class DisplayEEGVal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Poor.text = EEGDataExchange.Poor.ToString();
-        Raw.text = EEGDataExchange.Raw.ToString();
-        Attention.text = EEGDataExchange.Attension.ToString();
-        Meditation.text = EEGDataExchange.Meditation.ToString();
+        if(Poor)
+            Poor.text = EEGDataExchange.Poor.ToString();
+        if(Raw)
+            Raw.text = EEGDataExchange.Raw.ToString();
+        if(Attention)
+            Attention.text = EEGDataExchange.Attension.ToString();
+        if(Meditation)
+            Meditation.text = EEGDataExchange.Meditation.ToString();
+        if(DataBlock)
+            DataBlock.text = EEGDataExchange.DataInfo.ToString();
     }
 }

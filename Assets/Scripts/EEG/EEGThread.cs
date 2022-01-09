@@ -5,6 +5,7 @@ using UnityEngine;
 using NeuroSky.ThinkGear;
 using libStreamSDK;
 using System.Threading;
+using System.Text;
 
 public class EEGThread
 {
@@ -59,6 +60,7 @@ public class EEGThread
             {
                 for (int x = 0; x < 3; x++)
                 {
+                    if (_end) return;
                     Thread.Sleep(50);
                     string comPortName = "\\\\.\\COM" + i;
 
@@ -143,11 +145,32 @@ public class EEGThread
 
                     //NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_RAW);
                     //Debug.Log("New RAW value: : " + (int)NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_RAW));
-                    EEGDataExchange.Raw = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_RAW);
-                    EEGDataExchange.Poor = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_POOR_SIGNAL);
-                    EEGDataExchange.Attension = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_ATTENTION);
-                    EEGDataExchange.Meditation = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_MEDITATION);
-                    EEGDataExchange.OnEEGUpdate?.Invoke();
+                    StringBuilder sb = new StringBuilder();
+                    var statusR = NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_RAW);
+                    var Raw = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_RAW);
+                    sb.Append($"Raw status: {statusR}, Raw data: {Raw}; \n");
+                    var statusP = NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_POOR_SIGNAL);
+                    var Poor = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_POOR_SIGNAL);
+                    sb.Append($"Poor status: {statusP}, Poor data: {Poor}; \n");
+                    var statusA = NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_ATTENTION);
+                    var Attension = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_ATTENTION);
+                    sb.Append($"Attension status: {statusA}, Attension data: {Attension}; \n");
+                    var statusM = NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_MEDITATION);
+                    var Meditation = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_MEDITATION);
+                    sb.Append($"Meditation status: {statusM}, Meditation data: {Meditation}; \n");
+
+                    if (Poor==0 && Math.Abs(Raw) < 300 && Math.Abs(EEGDataExchange.Raw)< 300 && Math.Abs(Raw - EEGDataExchange.Raw)<128)
+                    {
+                        EEGDataExchange.Attension = Meditation>Attension?0:Attension-Meditation;
+                        EEGDataExchange.Meditation = Meditation>Attension?Meditation-Attension:0;
+                        EEGDataExchange.OnEEGUpdate?.Invoke();
+                    }
+                    sb.Append($"Calculated Attension: {EEGDataExchange.Attension}, calculated Meditation: {EEGDataExchange.Meditation}");
+
+                    EEGDataExchange.DataInfo = sb.ToString();
+                    EEGDataExchange.Raw = Raw;
+                    EEGDataExchange.Poor = Poor;
+
 
                     packetsRead++;
 

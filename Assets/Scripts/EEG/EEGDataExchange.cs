@@ -10,6 +10,8 @@ public static class EEGDataExchange
 {
     public static event BasicVoid CloseEEG;
 
+    public static string DataInfo="";
+
     public volatile static float Raw, Poor, Attension, Meditation;
 
     public static Action OnEEGUpdate;

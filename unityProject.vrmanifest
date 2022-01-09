@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.pracainzynierska2.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "G:\\PracaInzynierska\\PracaInzynierska2\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "G:\\PracaInzynierska\\PracaInzynierska\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "PracaInzynierska2 [Testing]"

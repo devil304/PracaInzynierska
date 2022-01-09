@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class pullEEG : MonoBehaviour
 {
-    [SerializeField] float attensionThreshold = 0.25f;
+    [SerializeField] float attensionThreshold = 10f;
     [SerializeField] float decreaseTime = 2f;
     [SerializeField] Rigidbody rb;
     [SerializeField] float speedMultiplier = 5f;
@@ -17,11 +17,16 @@ public class pullEEG : MonoBehaviour
     bool active = false;
     Material myMat;
     float intensityBase;
+    Light myLight;
+    float lightIntensityBase;
+
 
     private void OnEnable()
     {
+        myLight = GetComponent<Light>();
         myMat = GetComponent<Renderer>().material;
         intensityBase = myMat.GetFloat("_EmissiveIntensity");
+        lightIntensityBase = myLight.intensity;
     }
 
     public void activate(Transform targ)
@@ -29,6 +34,7 @@ public class pullEEG : MonoBehaviour
         if (!active)
         {
             myMat.SetFloat("_EmissiveIntensity", intensityBase*1.5f);
+            myLight.intensity = lightIntensityBase * 1.23f;
             target = targ;
             active = true;
             EEGDataExchange.OnEEGUpdate += NewEEGData;
@@ -40,6 +46,7 @@ public class pullEEG : MonoBehaviour
         if (active)
         {
             myMat.SetFloat("_EmissiveIntensity",intensityBase);
+            myLight.intensity = lightIntensityBase;
             active = false;
             if (rb.isKinematic)
                 rb.isKinematic = false;
@@ -77,6 +84,7 @@ public class pullEEG : MonoBehaviour
                 rb.isKinematic = true;
             rb.MovePosition(transform.position + ((target.position - transform.position).normalized * (speed/100f) * speedMultiplier * Time.deltaTime));
             myMat.SetFloat("_EmissiveIntensity", intensityBase + (intensityBase*0.5f* (speed / 100f)));
+            myLight.intensity = lightIntensityBase + (intensityBase * 0.23f * (speed / 100f));
             speed -= Time.deltaTime * speedDecreasePerSec;
         }
         else if (speed <= 0)
