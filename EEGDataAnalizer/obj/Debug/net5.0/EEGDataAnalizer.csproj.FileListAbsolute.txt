@@ -1,0 +1,16 @@
+G:\PracaInżynierska\EEGDataAnalizer\bin\Debug\net5.0\EEGDataAnalizer.exe
+G:\PracaInżynierska\EEGDataAnalizer\bin\Debug\net5.0\EEGDataAnalizer.deps.json
+G:\PracaInżynierska\EEGDataAnalizer\bin\Debug\net5.0\EEGDataAnalizer.runtimeconfig.json
+G:\PracaInżynierska\EEGDataAnalizer\bin\Debug\net5.0\EEGDataAnalizer.runtimeconfig.dev.json
+G:\PracaInżynierska\EEGDataAnalizer\bin\Debug\net5.0\EEGDataAnalizer.dll
+G:\PracaInżynierska\EEGDataAnalizer\bin\Debug\net5.0\ref\EEGDataAnalizer.dll
+G:\PracaInżynierska\EEGDataAnalizer\bin\Debug\net5.0\EEGDataAnalizer.pdb
+G:\PracaInżynierska\EEGDataAnalizer\obj\Debug\net5.0\EEGDataAnalizer.csproj.AssemblyReference.cache
+G:\PracaInżynierska\EEGDataAnalizer\obj\Debug\net5.0\EEGDataAnalizer.GeneratedMSBuildEditorConfig.editorconfig
+G:\PracaInżynierska\EEGDataAnalizer\obj\Debug\net5.0\EEGDataAnalizer.AssemblyInfoInputs.cache
+G:\PracaInżynierska\EEGDataAnalizer\obj\Debug\net5.0\EEGDataAnalizer.AssemblyInfo.cs
+G:\PracaInżynierska\EEGDataAnalizer\obj\Debug\net5.0\EEGDataAnalizer.csproj.CoreCompileInputs.cache
+G:\PracaInżynierska\EEGDataAnalizer\obj\Debug\net5.0\EEGDataAnalizer.dll
+G:\PracaInżynierska\EEGDataAnalizer\obj\Debug\net5.0\ref\EEGDataAnalizer.dll
+G:\PracaInżynierska\EEGDataAnalizer\obj\Debug\net5.0\EEGDataAnalizer.pdb
+G:\PracaInżynierska\EEGDataAnalizer\obj\Debug\net5.0\EEGDataAnalizer.genruntimeconfig.cache

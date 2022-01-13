@@ -18,7 +18,7 @@ public class StartKinect : MonoBehaviour
     void Start()
     {
         KinectHandler kinect = new KinectHandler();
-        KinectDataExchange.ekstrapolate += ekstrapolate;
+        KinectDataExchange.ekstrapolate += extrapolate;
         //Kinect = new Thread(kinectThread.Start);
         kinect.Start();
         KinectDataExchange.VRHands = _VRHands;
@@ -48,7 +48,7 @@ public class StartKinect : MonoBehaviour
         KinectDataExchange.InitCloseKinect();
     }
 
-    void ekstrapolate()
+    void extrapolate()
     {
         StartCoroutine(waitAndExtrapolate());
     }

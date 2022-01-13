@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "EEGDataCollectorNative/1.0.0": {
+        "runtime": {
+          "EEGDataCollectorNative.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EEGDataCollectorNative/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
