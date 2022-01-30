@@ -33,8 +33,6 @@ public class KinectHandler
                 _Reader.FrameArrived += OnFrameRecived;
             }
         }
-
-        KinectDataExchange.CloseKinect += Exit;
     }
 
     JointType[] _jointsToTrack = {JointType.AnkleLeft,JointType.AnkleRight,JointType.ElbowLeft,JointType.ElbowRight,JointType.FootLeft,JointType.FootRight,JointType.HandLeft,JointType.HandRight,JointType.Head,JointType.HipLeft,JointType.HipRight,JointType.KneeLeft,JointType.KneeRight,JointType.Neck, JointType.ShoulderLeft, JointType.ShoulderRight,JointType.SpineBase, JointType.SpineMid,JointType.SpineShoulder};
@@ -52,7 +50,6 @@ public class KinectHandler
             frame.GetAndRefreshBodyData(_Data);
             
             frame.Dispose();
-            frame = null;
             foreach(Body b in _Data){
                 if(b.IsTracked && _trackedBodyID<0){
                     _trackedBodyID = (int)b.TrackingId;
@@ -67,59 +64,30 @@ public class KinectHandler
                             var pos = b.Joints[jt].Position;
                             var rot = b.JointOrientations[jt].Orientation;
                             tmpJoints.Add(jt,new JointData(new Vector3(pos.X,pos.Y,-pos.Z), new Quaternion(rot.X,rot.Y,rot.Z,rot.W)));
-                        }else if(KinectDataExchange.Joints != null && KinectDataExchange.Joints.ContainsKey(jt))
-                            tmpJoints.Add(jt,KinectDataExchange.Joints[jt]);
+                        }else if(Joints != null && Joints.ContainsKey(jt))
+                            tmpJoints.Add(jt,Joints[jt]);
                     }
-                    var vrHandsDist = (KinectDataExchange.VRHands[0].position - KinectDataExchange.VRHands[1].position).sqrMagnitude;
+                    var vrHandsDist = (VRHands[0].position - VRHands[1].position).sqrMagnitude;
                     if(vrHandsDist>=0.25f*0.25f)
-                        KinectDataExchange.AddCorrection((tmpJoints[JointType.HandRight].Position - tmpJoints[JointType.HandLeft].Position).sqrMagnitude/vrHandsDist);
-                    KinectDataExchange.UpdateJoints(tmpJoints);
+                        AddCorrection((tmpJoints[JointType.HandRight].Position - tmpJoints[JointType.HandLeft].Position).sqrMagnitude/vrHandsDist);
+                    UpdateJoints(tmpJoints);
                 }
             }
         }
     }
 
+    public Dictionary<JointType, JointData> JointsOld;
+    public Dictionary<JointType, JointData> JointsNew;
+    public Dictionary<JointType, JointData> Joints;
 
+    public Action ekstrapolate;
 
-    public void Exit()
-    {
-        if (_Reader != null)
-        {
-            _Reader.Dispose();
-            _Reader = null;
-        }
-        
-        if (_Sensor != null)
-        {
-            if (_Sensor.IsOpen)
-            {
-                _Sensor.Close();
-            }
-            
-            _Sensor = null;
-        }
-    }
-}
+    public Transform[] VRHands;
+    public float correctionFactor => correctionQueue.Count > 0 ? correctionQueue.Average() : 1;
 
-public static class KinectDataExchange{
-    public static event BasicVoid CloseKinect;
-    public static Dictionary<JointType,JointData> JointsOld;
-    public static Dictionary<JointType, JointData> JointsNew;
-    public static Dictionary<JointType, JointData> Joints;
+    Queue<float> correctionQueue = new Queue<float>();
 
-    public static Action ekstrapolate;
-
-    public static Transform[] VRHands;
-    public static float correctionFactor => correctionQueue.Count>0?correctionQueue.Average():1;
-
-    static Queue<float> correctionQueue = new Queue<float>();
-
-    public static void InitCloseKinect()
-    {
-        CloseKinect?.Invoke();
-    }
-
-    public static void UpdateJoints(Dictionary<JointType, JointData> joints)
+    public void UpdateJoints(Dictionary<JointType, JointData> joints)
     {
         JointsOld = JointsNew;
         JointsNew = joints;
@@ -127,11 +95,30 @@ public static class KinectDataExchange{
         ekstrapolate?.Invoke();
     }
 
-    public static void AddCorrection(float correction)
+    public void AddCorrection(float correction)
     {
         correctionQueue.Enqueue(correction);
-        if(correctionQueue.Count>60)
+        if (correctionQueue.Count > 60)
             correctionQueue.Dequeue();
+    }
+
+    public void InitCloseKinect()
+    {
+        if (_Reader != null)
+        {
+            _Reader.Dispose();
+            _Reader = null;
+        }
+
+        if (_Sensor != null)
+        {
+            if (_Sensor.IsOpen)
+            {
+                _Sensor.Close();
+            }
+
+            _Sensor = null;
+        }
     }
 }
 

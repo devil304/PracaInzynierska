@@ -17,13 +17,12 @@ public class pullEEG : MonoBehaviour
     bool active = false;
     Material myMat;
     float intensityBase;
-    Light myLight;
+    [SerializeField] Light myLight;
     float lightIntensityBase;
 
 
     private void OnEnable()
     {
-        myLight = GetComponent<Light>();
         myMat = GetComponent<Renderer>().material;
         intensityBase = myMat.GetFloat("_EmissiveIntensity");
         lightIntensityBase = myLight.intensity;

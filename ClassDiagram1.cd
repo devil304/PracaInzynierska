@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EEGDataExchange">
+    <Position X="2.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAEAAACAAAAAEBAAABAAIAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGDataExchange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EEGThread">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAIAAAAAAAAAAIAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGThread.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThreadLoader">
+    <Position X="0.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAACABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\ThreadLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StartKinect">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQFAAAAACAAAAAAAAAAAAAIAAAAAAAAIAAABAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\Kinect\StartKinect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KinectHandler">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAECAAAACAAAAAABAAAAEAAAAAIAAEAAAgAAQ=</HashCode>
+      <FileName>Assets\Scripts\Kinect\KinectHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KinectDataExchange">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAwAAAAAAAAAAACAAAAAMAAEAAgQgAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Kinect\KinectHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Move">
+    <Position X="1.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAmAAAAEAAIAAAAAAAQIAAQAICABAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Movement\Move.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LineRendererHandler">
+    <Position X="4.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAIAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Other\LineRendererHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pullEEG">
+    <Position X="9" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAABgAkIAACQAIABAIAAQAAAACAIAAACBA=</HashCode>
+      <FileName>Assets\Scripts\Other\pullEEG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SqueezeAndSelect">
+    <Position X="11" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Other\SqueezeAndSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SqueezeRock">
+    <Position X="16.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAgACAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Other\SqueezeRock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="JointData">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Kinect\KinectHandler.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -92,7 +92,7 @@ public class EEGThread
         Debug.Log("Final init Code: " + errCode + " : " + i);
 
         int packetsRead = 0;
-        while (packetsRead < 10)
+        while (packetsRead < 111)
         {
             errCode = NativeThinkgear.TG_ReadPackets(connectionID, 1);
             Debug.Log("TG_ReadPackets returned: " + errCode);
@@ -107,7 +107,7 @@ public class EEGThread
                     break;
             }
         }
-        if (packetsRead == 10 && NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_ATTENTION) == 0)
+        if (packetsRead == 111 && NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_ATTENTION) == 0)
         {
             Debug.LogError("Can't get full packet in 10 attempts, STOPPING");
             return;
