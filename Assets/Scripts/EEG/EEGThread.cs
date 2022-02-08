@@ -6,6 +6,7 @@ using NeuroSky.ThinkGear;
 using libStreamSDK;
 using System.Threading;
 using System.Text;
+using EEGProcessing;
 
 public class EEGThread
 {
@@ -144,9 +145,12 @@ public class EEGThread
 
                     if (Poor == 0 && Math.Abs(Raw) < 300 && Math.Abs(EEGDataExchange.Raw) < 300 && Math.Abs(Raw - EEGDataExchange.Raw) < 128)
                     {
-                        EEGDataExchange.Attension = Meditation > Attension ? 0 : Attension - Meditation;
-                        EEGDataExchange.Meditation = Meditation > Attension ? Meditation - Attension : 0;
-                        EEGDataExchange.OnEEGUpdate?.Invoke();
+                        if(EEGFilters.Score(new float[] {Attension, Meditation }) < EEGFilters.Threshold)
+                        {
+                            EEGDataExchange.Attension = Attension;
+                            EEGDataExchange.Meditation = Meditation;
+                            EEGDataExchange.OnEEGUpdate?.Invoke();
+                        }
                     }
                     sb.Append($"Calculated Attension: {EEGDataExchange.Attension}, calculated Meditation: {EEGDataExchange.Meditation}");
 

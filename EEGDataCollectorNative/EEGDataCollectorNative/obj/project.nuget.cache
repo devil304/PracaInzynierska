@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RMJyxSBkl4Ovf3sud+5M0j2WpIXj8GrRsg2JBuIQk7j3UwLDoPHhH+v1m3XmugAVNQYpDjVwFePruVm3nh9xag==",
+  "dgSpecHash": "UQ4zNVeXrFx90Fcmnl6/VniABK8ARXKj49aHjgqVXckiaKPgEqxl3QwfjJymxIhsNhw8vM6AB07rrFMTJVJyDw==",
   "success": true,
-  "projectFilePath": "G:\\PracaInżynierska\\EEGDataCollectorNative\\EEGDataCollectorNative\\EEGDataCollectorNative.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "G:\\PracaInzynierska\\PracaInzynierska\\EEGDataCollectorNative\\EEGDataCollectorNative\\EEGDataCollectorNative.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\szymonrzosinski\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
+  ],
   "logs": []
 }

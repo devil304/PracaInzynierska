@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "L50RJl9fqZo7E5V5wxxoDusVKqwQNUlMlpBesFCgzQe44imHtO2uZMgTuIoAy66R8zeb0U7OCKKfBMeMuH5wrQ==",
+  "dgSpecHash": "VWUNCwSpyNMHQtLLalhb0TNDQUDlbiT9LFG7mbTe4qYgWFynyfg5e2K4mpLZvjDRbQGZIe5uLEQ023vzJ8Rx7Q==",
   "success": true,
   "projectFilePath": "G:\\PracaInzynierska\\PracaInzynierska\\EEGDataAnalizerVisual\\EEGDataAnalizerVisual.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\szymonrzosinski\\.nuget\\packages\\oxyplot.core\\2.1.0\\oxyplot.core.2.1.0.nupkg.sha512",
     "C:\\Users\\szymonrzosinski\\.nuget\\packages\\oxyplot.wpf\\2.1.0\\oxyplot.wpf.2.1.0.nupkg.sha512",
     "C:\\Users\\szymonrzosinski\\.nuget\\packages\\oxyplot.wpf.shared\\2.1.0\\oxyplot.wpf.shared.2.1.0.nupkg.sha512",
-    "C:\\Users\\szymonrzosinski\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+    "C:\\Users\\szymonrzosinski\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
   ],
   "logs": []
 }
