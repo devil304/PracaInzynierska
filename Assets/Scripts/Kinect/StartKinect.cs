@@ -63,7 +63,12 @@ public class StartKinect : MonoBehaviour
         for(int i = 0; i < names.Count; i++)
         {
             var tmp = kinect.JointsNew[names[i]];
-            tmp.Position = tmp.Position + ((tmp.Position - kinect.JointsOld[names[i]].Position) / 2);
+            Vector3 add = Vector3.zero;
+            if ((tmp.Position - kinect.JointsOld[names[i]].Position).sqrMagnitude >= (0.01f * 0.01f))
+            {
+                add = ((tmp.Position - kinect.JointsOld[names[i]].Position) / 2);
+            }
+            tmp.Position = tmp.Position + add;
             kinect.Joints[names[i]] = tmp;
         }
     }

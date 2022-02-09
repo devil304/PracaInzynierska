@@ -116,6 +116,8 @@ public class EEGThread
         AutoReadData();
     }
 
+    bool discard = false;
+    float oldAttention, oldMeditation;
     void AutoReadData()
     {
         Debug.Log("auto read begin:");
@@ -143,17 +145,30 @@ public class EEGThread
                     var Meditation = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_MEDITATION);
                     sb.Append($"Meditation status: {statusM}, Meditation data: {Meditation}; \n");
 
-                    if (Poor == 0 && Math.Abs(Raw) < 300 && Math.Abs(EEGDataExchange.Raw) < 300 && Math.Abs(Raw - EEGDataExchange.Raw) < 128)
+                    if (Poor == 0)
                     {
-                        if(EEGFilters.Score(new float[] {Attension, Meditation }) < EEGFilters.Threshold)
+                        if(Math.Abs(Raw) >= 300 || Math.Abs(Raw - EEGDataExchange.Raw) >= 128)
+                            discard = true;
+                        if (Attension!=oldAttention || Meditation!=oldMeditation)
                         {
-                            EEGDataExchange.Attension = Attension;
-                            EEGDataExchange.Meditation = Meditation;
-                            EEGDataExchange.OnEEGUpdate?.Invoke();
+                            if (discard)
+                            {
+                                discard = false;
+                            }
+                            else
+                            {
+                                if (EEGFilters.Score(new float[] { Attension, Meditation }) < EEGFilters.Threshold)
+                                {
+                                    EEGDataExchange.Attension = Attension;
+                                    EEGDataExchange.Meditation = Meditation;
+                                    EEGDataExchange.OnEEGUpdate?.Invoke();
+                                }
+                            }
                         }
                     }
                     sb.Append($"Calculated Attension: {EEGDataExchange.Attension}, calculated Meditation: {EEGDataExchange.Meditation}");
-
+                    oldAttention = Attension;
+                    oldMeditation = Meditation;
                     EEGDataExchange.DataInfo = sb.ToString();
                     EEGDataExchange.Raw = Raw;
                     EEGDataExchange.Poor = Poor;
