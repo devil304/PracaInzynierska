@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 //using System.Threading;
 using UnityEngine;
+using EEGProcessing;
+using Windows.Kinect;
 
 public class StartKinect : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class StartKinect : MonoBehaviour
 
     [Tooltip("Left0, Right1")]
     [SerializeField] Transform[] _VRHands;
+
+    List<KinectPlotData> KinectDataForPlot = new List<KinectPlotData>();
 
     KinectHandler kinect;
     // Start is called before the first frame update
@@ -27,10 +31,31 @@ public class StartKinect : MonoBehaviour
     }
 
     // Update is called once per frame
+    float t = 0;
     void Update()
     {
+        if (kinect.JointsAct == null || kinect.JointsAct.Count != kinect.Joints.Count)
+            kinect.JointsAct = kinect.Joints;
         if(kinect.Joints!=null){
-            JointData[] jd = kinect.Joints.Values.ToArray();
+            JointData[] jd = kinect.JointsAct.Values.ToArray();
+
+            foreach(var j in kinect.Joints.Keys)
+            {
+                if (kinect.Joints[j].Position != kinect.JointsEkstrOld[j].Position)
+                {
+                    t = 0;
+                    break;
+                }
+            }
+
+            t += Time.deltaTime;
+            foreach(var j in kinect.JointsAct.Keys)
+            {
+                var tmp = kinect.JointsAct[j];
+                tmp.Position = Vector3.Lerp(kinect.JointsEkstrOld[j].Position,kinect.Joints[j].Position,Mathf.Clamp01(t/0.016f));
+                kinect.JointsAct[j] = tmp;
+            }
+
             
             Vector3 correctionPos = ((jd[6].Position/ kinect.correctionFactor) - _armature[0].parent.InverseTransformPoint(_VRHands[0].position)+((jd[7].Position/ kinect.correctionFactor) - _armature[0].parent.InverseTransformPoint(_VRHands[1].position)))/2;
             for(int i =0;i<jd.Length;i++){
@@ -42,12 +67,23 @@ public class StartKinect : MonoBehaviour
                     _armature[i].localPosition = (jd[i].Position / kinect.correctionFactor) - correctionPos;
                 _armature[i].localRotation = jd[i].Rotation;
             }
+            if (kinect.JointsOld != null && kinect.JointsOld.ContainsKey(JointType.AnkleRight) && kinect.JointsOld.ContainsKey(JointType.ElbowLeft) && kinect.JointsOld.ContainsKey(JointType.HipRight)) {
+                Vector3ToSave RS1 = kinect.JointsNew[JointType.AnkleRight].Position.ToV3TS();
+                Vector3ToSave RS2 = kinect.JointsNew[JointType.ElbowLeft].Position.ToV3TS();
+                Vector3ToSave RS3 = kinect.JointsNew[JointType.HipRight].Position.ToV3TS();
+                Vector3ToSave S1 = kinect.JointsAct[JointType.AnkleRight].Position.ToV3TS();
+                Vector3ToSave S2 = kinect.JointsAct[JointType.ElbowLeft].Position.ToV3TS();
+                Vector3ToSave S3 = kinect.JointsAct[JointType.HipRight].Position.ToV3TS();
+                KinectDataForPlot.Add(new KinectPlotData(RS1,RS2,RS3,S1,S2,S3,Time.realtimeSinceStartup));
+            }
         }
     }
 
     private void OnDestroy()
     {
         kinect.InitCloseKinect();
+        if (KinectDataForPlot.Count > 0)
+            SaveSystem.SaveKinectPlotData(KinectDataForPlot.ToArray());
     }
 
     void extrapolate()
@@ -59,17 +95,21 @@ public class StartKinect : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.016f);
         if (kinect.JointsNew == null || kinect.JointsOld == null || kinect.Joints == null) yield break;
-        List<Windows.Kinect.JointType> names = kinect.Joints.Keys.ToList();
+        List<JointType> names = kinect.Joints.Keys.ToList();
+        kinect.JointsEkstrOld = kinect.Joints;
+        Dictionary<JointType, JointData> tmpJ = new Dictionary<JointType, JointData>();
         for(int i = 0; i < names.Count; i++)
         {
             var tmp = kinect.JointsNew[names[i]];
             Vector3 add = Vector3.zero;
             if ((tmp.Position - kinect.JointsOld[names[i]].Position).sqrMagnitude >= (0.01f * 0.01f))
             {
-                add = ((tmp.Position - kinect.JointsOld[names[i]].Position) / 2);
+                add = (tmp.Position - kinect.JointsOld[names[i]].Position) / 2;
             }
             tmp.Position = tmp.Position + add;
-            kinect.Joints[names[i]] = tmp;
+            tmpJ.Add(names[i], tmp);
+            //kinect.Joints[names[i]] = tmp;
         }
+        kinect.Joints = tmpJ;
     }
 }

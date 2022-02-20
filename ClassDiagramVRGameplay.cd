@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="DisplayEEGVal">
+    <Position X="8.25" Y="6" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAECAACAAAAAEAAAAAAAIAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\Display\DisplayEEGVal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Move">
+    <Position X="4.25" Y="5.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAmAAAAEAAIAAAAAAAQIAAQAICABAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Movement\Move.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputsSensors">
+    <Position X="3.25" Y="11" Width="2.25" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedToPoint="true">
+      <Path>
+        <Point X="5" Y="4.358" />
+        <Point X="5" Y="4.733" />
+        <Point X="4" Y="4.733" />
+        <Point X="4" Y="11" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>QAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Other\InputsSensors.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LineRendererHandler">
+    <Position X="9.25" Y="11" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAIAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Other\LineRendererHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="pullEEG">
+    <Position X="0.75" Y="9.75" Width="2.25" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedToPoint="true">
+      <Path>
+        <Point X="5" Y="4.358" />
+        <Point X="5" Y="5.375" />
+        <Point X="4" Y="5.375" />
+        <Point X="4" Y="9.375" />
+        <Point X="2.438" Y="9.375" />
+        <Point X="2.438" Y="9.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAABgAkIAACQAIABAIAAQAAAACAIAAACBA=</HashCode>
+      <FileName>Assets\Scripts\Other\pullEEG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SqueezeAndSelect">
+    <Position X="0.75" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Other\SqueezeAndSelect.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="cache" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SqueezeRock">
+    <Position X="6" Y="10.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAgACAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Other\SqueezeRock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour">
+    <Position X="3.5" Y="0.75" Width="3" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

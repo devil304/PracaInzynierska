@@ -30,7 +30,7 @@ namespace EEGDataAnalizerVisual
         {
             Data = null;
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "EEG Data files(*.eegm)|*.eegm";
+            openFileDialog.Filter = "EEG Data files(*.eegm)|*.eegm|EEG Plot Data (*.eegpd)|*.eegpd|Kinect Plot Data (*.kpd)|*.kpd";
             if (openFileDialog.ShowDialog() == true)
             {
                 Data = DataModel.DeserializeXMLFile(openFileDialog.FileName);

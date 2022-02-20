@@ -10,6 +10,7 @@ public class KinectHandler
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
     private Body[] _Data = null;
+    private float _Threshold = 0f;
     
     public Body[] GetData()
     {
@@ -70,6 +71,13 @@ public class KinectHandler
                     var vrHandsDist = (VRHands[0].position - VRHands[1].position).sqrMagnitude;
                     if(vrHandsDist>=0.25f*0.25f)
                         AddCorrection((tmpJoints[JointType.HandRight].Position - tmpJoints[JointType.HandLeft].Position).sqrMagnitude/vrHandsDist);
+                    if(JointsOld!=null)
+                        for(int i = 0; i < tmpJoints.Count; i++)
+                        {
+                            var element = tmpJoints.ElementAt(i);
+                            if ((element.Value.Position - JointsOld[element.Key].Position).sqrMagnitude <= _Threshold * _Threshold)
+                                tmpJoints[element.Key] = JointsOld[element.Key];
+                        }
                     UpdateJoints(tmpJoints);
                 }
             }
@@ -79,6 +87,8 @@ public class KinectHandler
     public Dictionary<JointType, JointData> JointsOld;
     public Dictionary<JointType, JointData> JointsNew;
     public Dictionary<JointType, JointData> Joints;
+    public Dictionary<JointType, JointData> JointsEkstrOld;
+    public Dictionary<JointType, JointData> JointsAct;
 
     public Action ekstrapolate;
 

@@ -22,7 +22,7 @@ public class DisplayEEGVal : MonoBehaviour
         if(Raw)
             Raw.text = EEGDataExchange.Raw.ToString();
         if(Attention)
-            Attention.text = EEGDataExchange.Attension.ToString();
+            Attention.text = EEGDataExchange.GameAttension.ToString();
         if(Meditation)
             Meditation.text = EEGDataExchange.Meditation.ToString();
         if(DataBlock)

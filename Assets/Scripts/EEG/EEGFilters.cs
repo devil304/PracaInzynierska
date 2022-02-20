@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using UnityEngine;
+using Random = System.Random;
 
 namespace EEGProcessing
 {
@@ -14,9 +16,10 @@ namespace EEGProcessing
 
         public static float Threshold = 0f;
 
-        static EEGFilters()
+        public static void StartEEGFilters()
         {
             Roots = SaveSystem.LoadFile("TestTrees");
+            
             var trees = Roots.Shuffle().ToList();
         }
         
@@ -28,7 +31,7 @@ namespace EEGProcessing
                 scoresums += Evaluate(data, Roots[i], 0);
             }
             scoresums /= Roots.Count();
-            return (float)scoresums;
+            return (float)Math.Pow(2f, -(scoresums / C(254)));
         }
 
         static float Evaluate(float[] data, Node root, int currentDepth)
@@ -62,8 +65,6 @@ namespace EEGProcessing
 
     public static class SaveSystem
     {
-        static List<Node> rootsToSave;
-        static int count = 0;
 
         public static Node[] LoadFile(string name)
         {
@@ -80,18 +81,38 @@ namespace EEGProcessing
                     saveContainer.roots[i].Left = saveContainer.roots[i].LeftID < 0 ? null : saveContainer.roots[saveContainer.roots[i].LeftID];
                     saveContainer.roots[i].Right = saveContainer.roots[i].RightID < 0 ? null : saveContainer.roots[saveContainer.roots[i].RightID];
                 }
+                EEGFilters.Threshold = saveContainer.threshold;
                 return saveContainer.roots.ToList().GetRange(0, saveContainer.mainTreesCount).ToArray();
             }
             return null;
         }
 
-        static int indexer(Node root)
+        public static void SaveEEGPlotData(EEGPlotData[] eegPlotData, string name = "EEGPlotData")
         {
-            rootsToSave.Add(root);
-            root.LeftID = root.Left != null ? indexer(root.Left) : -1;
-            root.RightID = root.Right != null ? indexer(root.Right) : -1;
-            return rootsToSave.Count - 1;
+            if (!File.Exists(@".\" + name + ".eegpd"))
+            {
+                TextWriter writer = new StreamWriter(name + ".eegpd");
+                XmlSerializer serializer = new XmlSerializer(typeof(EEGPlotData[]));
+                serializer.Serialize(writer, eegPlotData);
+                writer.Close();
+            }
+            else
+                Debug.LogWarning("ERROR: File already exist");
         }
+
+        public static void SaveKinectPlotData(KinectPlotData[] kinectPlotData, string name = "KinectPlotData")
+        {
+            if (!File.Exists(@".\" + name + ".kpd"))
+            {
+                TextWriter writer = new StreamWriter(name + ".kpd");
+                XmlSerializer serializer = new XmlSerializer(typeof(KinectPlotData[]));
+                serializer.Serialize(writer, kinectPlotData);
+                writer.Close();
+            }
+            else
+                Debug.LogWarning("ERROR: File already exist");
+        }
+
     }
 
     [Serializable]
@@ -108,6 +129,58 @@ namespace EEGProcessing
             roots = r;
             mainTreesCount = treesC;
             threshold = t;
+        }
+    }
+
+    [Serializable]
+    public class EEGPlotData
+    {
+        public float TimeS;
+        public float RawAtt, RawMed;
+        public float GameAtt, GameMed;
+
+        public EEGPlotData() { }
+
+        public EEGPlotData(float rawAtt, float rawMed, float gameAtt, float gameMed,float timeS)
+        {
+            RawAtt = rawAtt;
+            RawMed = rawMed;
+            GameAtt = gameAtt;
+            GameMed = gameMed;
+            TimeS = timeS;
+        }
+    }
+
+    [Serializable]
+    public class KinectPlotData
+    {
+        public float TimeS;
+        public Vector3ToSave RawS1, RawS2, RawS3, GameS1, GameS2, GameS3;
+        public KinectPlotData() { }
+
+        public KinectPlotData(Vector3ToSave rawS1, Vector3ToSave rawS2, Vector3ToSave rawS3, Vector3ToSave gameS1, Vector3ToSave gameS2, Vector3ToSave gameS3, float timeS)
+        {
+            RawS1 = rawS1;
+            RawS2 = rawS2;
+            RawS3 = rawS3;
+            GameS1 = gameS1;
+            GameS2 = gameS2;
+            GameS3 = gameS3;
+            TimeS = timeS;
+        }
+    }
+
+    [Serializable]
+    public class Vector3ToSave
+    {
+        public float x, y, z;
+        public Vector3ToSave() { }
+
+        public Vector3ToSave(float x, float y, float z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
         }
     }
 
@@ -137,6 +210,11 @@ namespace EEGProcessing
             }
 
             return list;
+        }
+
+        public static Vector3ToSave ToV3TS(this Vector3 source)
+        {
+            return new Vector3ToSave(source.x, source.y, source.z);
         }
     }
 

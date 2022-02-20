@@ -56,9 +56,9 @@ public class pullEEG : MonoBehaviour
 
     private void NewEEGData()
     {
-        if (EEGDataExchange.Attension >= attensionThreshold)
+        if (EEGDataExchange.GameAttension >= attensionThreshold)
         {
-            speed = EEGDataExchange.Attension;
+            speed = EEGDataExchange.GameAttension;
         }
     }
 

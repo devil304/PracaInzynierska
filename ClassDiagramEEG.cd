@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="EEGDataExchange">
+    <Position X="20" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQQAAAEAAACAAIAIEBAAABAAIAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGDataExchange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EEGProcessing.EEGFilters">
+    <Position X="20.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAgAAAAABAAAAAAAggEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Roots" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EEGProcessing.SaveSystem">
+    <Position X="18" Y="12" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAAABAQ=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="rootsToSave" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EEGProcessing.SaveContainer">
+    <Position X="13" Y="9.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAEAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="roots" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EEGProcessing.Node">
+    <Position X="16.5" Y="9" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAQAAAAAAAAAAAAAAEAAAAAAAICACAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="SplitType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EEGProcessing.Extensions">
+    <Position X="13.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EEGLerpRuntime">
+    <Position X="18.5" Y="5.75" Width="1.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.25" Y="4.108" />
+        <Point X="17.25" Y="4.375" />
+        <Point X="18.938" Y="4.375" />
+        <Point X="18.938" Y="5.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>ABQIAQAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGLerpRuntime.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EEGThread">
+    <Position X="15.75" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAgACAIAAAAAAAAAgIAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGThread.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThreadLoader">
+    <Position X="13.25" Y="3.75" Width="1.75" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedFromPoint="true">
+      <Path>
+        <Point X="17.25" Y="4.108" />
+        <Point X="17.25" Y="4.375" />
+        <Point X="15.375" Y="4.375" />
+        <Point X="15.375" Y="3.375" />
+        <Point X="14.125" Y="3.375" />
+        <Point X="14.125" Y="3.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAACABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\ThreadLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="libStreamSDK.NativeThinkgear">
+    <Position X="9.5" Y="1.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="libStreamSDK.NativeThinkgear.Baudrate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\ThinkGear\Native\NativeThinkgear64.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="libStreamSDK.NativeThinkgear.SerialDataFormat" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\ThinkGear\Native\NativeThinkgear64.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="libStreamSDK.NativeThinkgear.DataType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\ThinkGear\Native\NativeThinkgear64.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="libStreamSDK.NativeThinkgear.FilterType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\ThinkGear\Native\NativeThinkgear64.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAACBBAAAQEIMAAAAACCAAAAAAAAQAAAAJABACgAA=</HashCode>
+      <FileName>Assets\ThinkGear\Native\NativeThinkgear64.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour">
+    <Position X="15.75" Y="0.5" Width="3" />
+    <TypeIdentifier />
+  </Class>
+  <Enum Name="EEGProcessing.SplitType">
+    <Position X="14.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="BasicVoid" Collapsed="true">
+    <Position X="13.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGDataExchange.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

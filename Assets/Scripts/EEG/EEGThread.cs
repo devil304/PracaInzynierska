@@ -15,6 +15,7 @@ public class EEGThread
 
     public void Start()
     {
+        EEGFilters.StartEEGFilters();
         connectionID = NativeThinkgear.TG_GetNewConnectionId();
         Debug.Log("Connection ID: " + connectionID);
         EEGDataExchange.CloseEEG += () =>
@@ -93,7 +94,7 @@ public class EEGThread
         Debug.Log("Final init Code: " + errCode + " : " + i);
 
         int packetsRead = 0;
-        while (packetsRead < 111)
+        while (packetsRead < 256)
         {
             errCode = NativeThinkgear.TG_ReadPackets(connectionID, 1);
             Debug.Log("TG_ReadPackets returned: " + errCode);
@@ -108,9 +109,13 @@ public class EEGThread
                     break;
             }
         }
-        if (packetsRead == 111 && NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_ATTENTION) == 0)
+        if (packetsRead == 256 && NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_ATTENTION) == 0)
         {
-            Debug.LogError("Can't get full packet in 10 attempts, STOPPING");
+            Debug.LogError("Can't get full packet in over 250 attempts, STOPPING");
+            NativeThinkgear.TG_Disconnect(connectionID); // disconnect
+
+            //Clean up
+            NativeThinkgear.TG_FreeConnection(connectionID);
             return;
         }
         AutoReadData();
@@ -144,7 +149,11 @@ public class EEGThread
                     var statusM = NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_MEDITATION);
                     var Meditation = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_MEDITATION);
                     sb.Append($"Meditation status: {statusM}, Meditation data: {Meditation}; \n");
-
+                    if(Attension!=EEGDataExchange.RawAttension || Meditation != EEGDataExchange.RawMeditation)
+                    {
+                        EEGDataExchange.RawAttension = Attension;
+                        EEGDataExchange.RawMeditation = Meditation;
+                    }
                     if (Poor == 0)
                     {
                         if(Math.Abs(Raw) >= 300 || Math.Abs(Raw - EEGDataExchange.Raw) >= 128)
@@ -159,8 +168,8 @@ public class EEGThread
                             {
                                 if (EEGFilters.Score(new float[] { Attension, Meditation }) < EEGFilters.Threshold)
                                 {
-                                    EEGDataExchange.Attension = Attension;
-                                    EEGDataExchange.Meditation = Meditation;
+                                    EEGDataExchange.SetNewVal(SplitType.Attension,Attension);
+                                    EEGDataExchange.SetNewVal(SplitType.Meditation, Meditation);
                                     EEGDataExchange.OnEEGUpdate?.Invoke();
                                 }
                             }
