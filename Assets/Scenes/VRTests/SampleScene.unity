@@ -5890,7 +5890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &989643385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8196,6 +8196,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1345062646 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 490018, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+  m_PrefabInstance: {fileID: 473598415}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1347958104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9620,7 +9625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1609814984
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12087,7 +12092,7 @@ MonoBehaviour:
   decreaseTime: 10
   rb: {fileID: 1915512786}
   speedMultiplier: 0.5
-  speedDecreasePerSec: 3
+  speedDecreasePerSec: 0.1
   maxDistFromTarget: 7.5
   speed: 0
   myLight: {fileID: 1915512788}
@@ -12506,11 +12511,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
   m_PrefabInstance: {fileID: 473598415}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2010177899 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 485514, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-  m_PrefabInstance: {fileID: 473598415}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2010177903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12524,7 +12524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: 2
-  rayOrigin: {fileID: 2010177899}
+  rayOrigin: {fileID: 1345062646}
   rayMask:
     serializedVersion: 2
     m_Bits: 1

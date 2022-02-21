@@ -49,4 +49,11 @@ public class SqueezeAndSelect : MonoBehaviour
             cache.AddRange(cacheTmp);
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(rayOrigin.position, rayOrigin.transform.forward * 5f);
+        Gizmos.DrawSphere(rayOrigin.position + rayOrigin.transform.forward * 5f,0.1f);
+    }
 }

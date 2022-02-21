@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="EEGDataCollectorNative.App">
+    <Position X="11" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAIAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EEGDataExchange">
+    <Position X="4.25" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAGIAAAAEAAAABAAIAAAAAlAAAEAAAEIA=</HashCode>
+      <FileName>EEGDataExchange.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="DataList" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MeasuredDataConteiner">
+    <Position X="5.25" Y="6" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>EEGDataExchange.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Data" />
+      <Field Name="DataRaw" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MeasuredData">
+    <Position X="8" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAMAEAAAAAAAAAEAAAAAAAAAABAIAAAAAAABAQA=</HashCode>
+      <FileName>EEGDataExchange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MeasuredDataRaw">
+    <Position X="5.25" Y="8.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>EEGDataExchange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EEGThread">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>EEGThread.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EEGDataCollectorNative.End">
+    <Position X="14.5" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>End.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EEGDataCollectorNative.MainWindow">
+    <Position X="14.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="libStreamSDK.NativeThinkgear">
+    <Position X="0.5" Y="2.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="libStreamSDK.NativeThinkgear.Baudrate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NativeThinkgear64.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="libStreamSDK.NativeThinkgear.SerialDataFormat" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NativeThinkgear64.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="libStreamSDK.NativeThinkgear.DataType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NativeThinkgear64.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="libStreamSDK.NativeThinkgear.FilterType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>NativeThinkgear64.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AACAACBBAAAQEIMAAAAACCAAAAAAAAQAAAAJABACgAA=</HashCode>
+      <FileName>NativeThinkgear64.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="thinkgear_testapp_csharp_64.Program">
+    <Position X="11.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EEGDataCollectorNative.Test1">
+    <Position X="10.25" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Test1.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EEGDataCollectorNative.Test2">
+    <Position X="12.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Test2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EEGDataCollectorNative.Test3">
+    <Position X="14.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Test3.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EEGDataCollectorNative.Test4">
+    <Position X="16.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Test4.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EEGDataCollectorNative.Test5">
+    <Position X="18.5" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Test5.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Delegate Name="BasicVoid" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EEGDataExchange.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

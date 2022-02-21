@@ -31,7 +31,8 @@ namespace EEGProcessing
                 scoresums += Evaluate(data, Roots[i], 0);
             }
             scoresums /= Roots.Count();
-            return (float)Math.Pow(2f, -(scoresums / C(254)));
+            var res = (float)Math.Pow(2f, -(scoresums / C(254)));
+            return res;
         }
 
         static float Evaluate(float[] data, Node root, int currentDepth)

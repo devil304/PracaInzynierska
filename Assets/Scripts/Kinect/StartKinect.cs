@@ -37,26 +37,28 @@ public class StartKinect : MonoBehaviour
         if (kinect.JointsAct == null || kinect.JointsAct.Count != kinect.Joints.Count)
             kinect.JointsAct = kinect.Joints;
         if(kinect.Joints!=null){
-            JointData[] jd = kinect.JointsAct.Values.ToArray();
 
-            foreach(var j in kinect.Joints.Keys)
-            {
-                if (kinect.Joints[j].Position != kinect.JointsEkstrOld[j].Position)
+            if(kinect.JointsEkstrOld!=null){
+                foreach(var j in kinect.Joints.Keys.ToArray())
                 {
-                    t = 0;
-                    break;
+                    if (kinect.Joints[j].Position != kinect.JointsEkstrOld[j].Position)
+                    {
+                        t = 0;
+                        break;
+                    }
+                }
+
+                t += Time.deltaTime;
+                foreach(var j in kinect.JointsAct.Keys.ToArray())
+                {
+                    var tmp = kinect.JointsAct[j];
+                    tmp.Position = Vector3.Lerp(kinect.JointsEkstrOld[j].Position,kinect.Joints[j].Position,Mathf.Clamp01(t/0.016f));
+                    kinect.JointsAct[j] = tmp;
                 }
             }
 
-            t += Time.deltaTime;
-            foreach(var j in kinect.JointsAct.Keys)
-            {
-                var tmp = kinect.JointsAct[j];
-                tmp.Position = Vector3.Lerp(kinect.JointsEkstrOld[j].Position,kinect.Joints[j].Position,Mathf.Clamp01(t/0.016f));
-                kinect.JointsAct[j] = tmp;
-            }
+            JointData[] jd = kinect.JointsAct.Values.ToArray();
 
-            
             Vector3 correctionPos = ((jd[6].Position/ kinect.correctionFactor) - _armature[0].parent.InverseTransformPoint(_VRHands[0].position)+((jd[7].Position/ kinect.correctionFactor) - _armature[0].parent.InverseTransformPoint(_VRHands[1].position)))/2;
             for(int i =0;i<jd.Length;i++){
                 if (_rigidbodies[i])
