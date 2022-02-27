@@ -279,7 +279,7 @@ public class EEGThread
              if (tgParser.ParsedData[i].ContainsKey("Attention"))
              {
                  //Debug.Log("Att Value:" + tgParser.ParsedData[i]["Attention"]);
-                 EEGDataExchange.Attension = (float)tgParser.ParsedData[i]["Attention"];
+                 EEGDataExchange.Attention = (float)tgParser.ParsedData[i]["Attention"];
              }
 
              if (tgParser.ParsedData[i].ContainsKey("Meditation"))

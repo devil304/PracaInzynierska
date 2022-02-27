@@ -15,21 +15,21 @@ public class EEGLerpRuntime : MonoBehaviour
     private void Update()
     {
         bool _updated = false;
-        if (EEGDataExchange.Attension != cachedA)
+        if (EEGDataExchange.Attention != cachedA)
         {
             aTime = 0;
-            cachedA = EEGDataExchange.Attension;
+            cachedA = EEGDataExchange.Attention;
         }
         if (EEGDataExchange.Meditation != cachedM)
         {
             mTime = 0;
             cachedM = EEGDataExchange.Meditation;
         }
-        if(Math.Abs(EEGDataExchange.Attension-EEGDataExchange.GameAttension)>1)
+        if(Math.Abs(EEGDataExchange.Attention-EEGDataExchange.GameAttention)>1)
         {
             aTime += Time.deltaTime;
             aTime = aTime > 1f ? 1f : aTime;
-            EEGDataExchange.GameAttension = Mathf.Lerp(EEGDataExchange.GameAttension, EEGDataExchange.Attension, aTime);
+            EEGDataExchange.GameAttention = Mathf.Lerp(EEGDataExchange.GameAttention, EEGDataExchange.Attention, aTime);
             _updated = true;
         }
         if (Math.Abs(EEGDataExchange.Meditation - EEGDataExchange.GameMeditation) > 1)
@@ -43,7 +43,7 @@ public class EEGLerpRuntime : MonoBehaviour
             EEGDataExchange.OnEEGUpdate?.Invoke();
         if (cachedA!=0 || cachedM != 0)
         {
-            EEGDataForPlot.Add(new EEGPlotData(EEGDataExchange.RawAttension, EEGDataExchange.RawMeditation, EEGDataExchange.GameAttension,EEGDataExchange.GameMeditation,Time.realtimeSinceStartup));
+            EEGDataForPlot.Add(new EEGPlotData(EEGDataExchange.RawAttention, EEGDataExchange.RawMeditation, EEGDataExchange.GameAttention,EEGDataExchange.GameMeditation,Time.realtimeSinceStartup));
         }
     }
 

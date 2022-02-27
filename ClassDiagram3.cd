@@ -22,14 +22,14 @@
   <Class Name="EEGDataExchange" Collapsed="true">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQQAAAEAAACAAIAIEBAAABAAIAAAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQQAAAEAAACCAIAIEBAACBAAIAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGDataExchange.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EEGProcessing.EEGFilters" Collapsed="true">
     <Position X="1" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAgAAAAABAAAAAAAggEAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAgAAAAIBAAAAAAAggEAAAAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -39,12 +39,9 @@
   <Class Name="EEGProcessing.SaveSystem" Collapsed="true">
     <Position X="0.5" Y="8.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAAABAQ=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAACAAAAABAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="rootsToSave" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="EEGProcessing.SaveContainer" Collapsed="true">
     <Position X="0.5" Y="7.25" Width="2.25" />
@@ -69,21 +66,21 @@
   <Class Name="EEGProcessing.Extensions" Collapsed="true">
     <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EEGLerpRuntime" Collapsed="true">
     <Position X="6.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABQIAQAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABQJAQAAAACAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGLerpRuntime.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EEGThread" Collapsed="true">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAgACAIAAAAAAAAAgIAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAEAAAACAAAAAAgACAIAAAAAAAAAgIAAAAAAQAAAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGThread.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -97,7 +94,7 @@
   <Class Name="KinectHandler" Collapsed="true">
     <Position X="3.5" Y="2.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAwAAECAAAACAAAAAABAMAAEAAgQgAAAEAAAgAEQ=</HashCode>
+      <HashCode>AAAAAwAAECAACACAAAgAABAMAAEAAgQgAIAEAAAgAEQ=</HashCode>
       <FileName>Assets\Scripts\Kinect\KinectHandler.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -109,7 +106,7 @@
   <Class Name="StartKinect" Collapsed="true">
     <Position X="4" Y="4.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAQFAAAAACAAAAAAAAAAAAAMAAAAAAAAIAAABAAQAAA=</HashCode>
+      <HashCode>AAQFAAAAACAAAAAAAAAAAAAMAgAAAAAAIAQABAAQAAA=</HashCode>
       <FileName>Assets\Scripts\Kinect\StartKinect.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -163,7 +160,7 @@
   <Class Name="SqueezeAndSelect" Collapsed="true">
     <Position X="8.75" Y="6" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>ACQAAAAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>ACQAAAAAAAIAAAIAAAAAAAAAAABAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Assets\Scripts\Other\SqueezeAndSelect.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -182,28 +179,6 @@
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
-    <NestedTypes>
-      <Enum Name="libStreamSDK.NativeThinkgear.Baudrate" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Assets\ThinkGear\Native\NativeThinkgear64.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-      <Enum Name="libStreamSDK.NativeThinkgear.SerialDataFormat" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Assets\ThinkGear\Native\NativeThinkgear64.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-      <Enum Name="libStreamSDK.NativeThinkgear.DataType" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Assets\ThinkGear\Native\NativeThinkgear64.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-      <Enum Name="libStreamSDK.NativeThinkgear.FilterType" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Assets\ThinkGear\Native\NativeThinkgear64.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AACAACBBAAAQEIMAAAAACCAAAAAAAAQAAAAJABACgAA=</HashCode>
       <FileName>Assets\ThinkGear\Native\NativeThinkgear64.cs</FileName>
@@ -212,6 +187,79 @@
   <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
     <Position X="10.25" Y="2.75" Width="3" />
     <TypeIdentifier />
+  </Class>
+  <Class Name="EEGProcessing.EEGPlotData" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAEAAAAgAAAEAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EEGProcessing.KinectPlotData" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <AssociationLine Name="GameS1" Type="EEGProcessing.Vector3ToSave" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.188" Y="0.5" />
+        <Point X="5.188" Y="0.274" />
+        <Point X="1.938" Y="0.274" />
+        <Point X="1.938" Y="0.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GameS2" Type="EEGProcessing.Vector3ToSave" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="0.625" />
+        <Point X="2" Y="0.625" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GameS3" Type="EEGProcessing.Vector3ToSave" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.562" Y="0.5" />
+        <Point X="5.562" Y="0.125" />
+        <Point X="0.938" Y="0.125" />
+        <Point X="0.938" Y="0.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="RawS1" Type="EEGProcessing.Vector3ToSave" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.859" Y="1.062" />
+        <Point X="5.859" Y="1.462" />
+        <Point X="0.812" Y="1.462" />
+        <Point X="0.812" Y="1.062" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="RawS2" Type="EEGProcessing.Vector3ToSave" FixedFromPoint="true">
+      <Path>
+        <Point X="4.75" Y="1" />
+        <Point X="2" Y="1" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="RawS3" Type="EEGProcessing.Vector3ToSave" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.453" Y="1.062" />
+        <Point X="5.453" Y="1.292" />
+        <Point X="1.625" Y="1.292" />
+        <Point X="1.625" Y="1.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAABAoAAAAAAAAABAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="GameS1" />
+      <Field Name="GameS2" />
+      <Field Name="GameS3" />
+      <Field Name="RawS1" />
+      <Field Name="RawS2" />
+      <Field Name="RawS3" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EEGProcessing.Vector3ToSave" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Struct Name="JointData" Collapsed="true">
     <Position X="0.5" Y="2.5" Width="1.75" />

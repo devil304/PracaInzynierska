@@ -110,6 +110,13 @@ public class StartKinect : MonoBehaviour
             }
             tmp.Position = tmp.Position + add;
             tmpJ.Add(names[i], tmp);
+            /*var rotationDifference = kinect.JointsNew[names[i]].Rotation * Quaternion.Inverse(kinect.JointsOld[names[i]].Rotation);
+            float angle;
+            Vector3 axis;
+            rotationDifference.ToAngleAxis(out angle, out axis);
+            angle = angle > 180? angle - 360:angle;
+            angle = angle * 1.5f % 360;
+            var newRotation = Quaternion.AngleAxis(angle, axis) * kinect.JointsOld[names[i]].Rotation;*/
             //kinect.Joints[names[i]] = tmp;
         }
         kinect.Joints = tmpJ;

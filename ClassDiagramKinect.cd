@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="KinectHandler">
-    <Position X="7.5" Y="5.25" Width="3.25" />
+    <Position X="7.25" Y="5.25" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAwAAECAAAACAAAAAABAMAAEAAgQgAAAEAAAgAEQ=</HashCode>
+      <HashCode>AAAAAwAAECAACACAAAgAABAMAAEAAgQgAIAEAAAgAEQ=</HashCode>
       <FileName>Assets\Scripts\Kinect\KinectHandler.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -13,29 +13,39 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="StartKinect">
-    <Position X="11.5" Y="5.5" Width="2.5" />
+    <Position X="11.5" Y="5.5" Width="3" />
     <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedFromPoint="true">
       <Path>
         <Point X="10.75" Y="4.108" />
         <Point X="10.75" Y="4.483" />
-        <Point X="12.75" Y="4.483" />
-        <Point X="12.75" Y="5.5" />
+        <Point X="13" Y="4.483" />
+        <Point X="13" Y="5.5" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAQFAAAAACAAAAAAAAAAAAAMAAAAAAAAIAAABAAQAAA=</HashCode>
+      <HashCode>AAQFAAAAACAAAAAAAAAAAAAMAgAAAAAAIAQABAAQAAA=</HashCode>
       <FileName>Assets\Scripts\Kinect\StartKinect.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="kinect" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="KinectDataForPlot" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="UnityEngine.MonoBehaviour">
     <Position X="9.25" Y="0.5" Width="3" />
     <TypeIdentifier />
   </Class>
+  <Class Name="EEGProcessing.KinectPlotData" Collapsed="true">
+    <Position X="13" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAABAoAAAAAAAAABAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="JointData">
-    <Position X="2.75" Y="5.75" Width="1.75" />
+    <Position X="2.5" Y="5.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Kinect\KinectHandler.cs</FileName>

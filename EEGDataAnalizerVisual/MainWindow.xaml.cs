@@ -28,16 +28,47 @@ namespace EEGDataAnalizerVisual
         MeasuredDataConteiner[] Data;
         public MainWindow()
         {
+            ((App)Application.Current).CloseOpenWindow(true);
             Data = null;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "EEG Data files(*.eegm)|*.eegm|EEG Plot Data (*.eegpd)|*.eegpd|Kinect Plot Data (*.kpd)|*.kpd";
             if (openFileDialog.ShowDialog() == true)
             {
-                Data = DataModel.DeserializeXMLFile(openFileDialog.FileName);
+                var ext = openFileDialog.FileName.Split('.').ToList().Last();
+                if (ext == "eegpd")
+                {
+                    MainWindowEEG mweeg = new(openFileDialog.FileName);
+                    mweeg.Show();
+                    Close();
+                }
+                else if (ext == "kpd")
+                {
+                    MainWindowKinect mwk = new(openFileDialog.FileName);
+                    mwk.Show();
+                    Close();
+                }
+                else
+                {
+                    Data = DataModel.DeserializeXMLFile(openFileDialog.FileName);
+                }
+            }
+            else
+            {
+                Close();
             }
 
-            this.DataContext = new MainViewModel(Data[i]);
-            InitializeComponent();
+
+            if (Data != null)
+            {
+                this.DataContext = new MainViewModel(Data[i]);
+                InitializeComponent();
+            }
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            ((App)Application.Current).CloseOpenWindow();
+            base.OnClosed(e);
         }
 
         private void Prev(object sender, RoutedEventArgs e)

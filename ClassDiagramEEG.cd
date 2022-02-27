@@ -3,14 +3,14 @@
   <Class Name="EEGDataExchange">
     <Position X="20" Y="0.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAQQAAAEAAACAAIAIEBAAABAAIAAAAAgAAAAAAAAAA=</HashCode>
+      <HashCode>AAAQQAAAEAAACCAIAIEBAACBAAIAAAAAgAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGDataExchange.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EEGProcessing.EEGFilters">
-    <Position X="20.25" Y="8.5" Width="1.5" />
+    <Position X="20" Y="8.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAgAAAAABAAAAAAAggEAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAgAAAAIBAAAAAAAggEAAAAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -18,14 +18,11 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="EEGProcessing.SaveSystem">
-    <Position X="18" Y="12" Width="2" />
+    <Position X="18.25" Y="11.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAACAAAAAAAAAAAAAAAAAAABAQ=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAACAAAAABAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="rootsToSave" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="EEGProcessing.SaveContainer">
     <Position X="13" Y="9.25" Width="2.25" />
@@ -50,42 +47,51 @@
   <Class Name="EEGProcessing.Extensions">
     <Position X="13.25" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EEGLerpRuntime">
-    <Position X="18.5" Y="5.75" Width="1.5" />
+    <Position X="15.25" Y="5.5" Width="2.75" />
     <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedToPoint="true">
       <Path>
         <Point X="17.25" Y="4.108" />
-        <Point X="17.25" Y="4.375" />
-        <Point X="18.938" Y="4.375" />
-        <Point X="18.938" Y="5.75" />
+        <Point X="17.25" Y="5.007" />
+        <Point X="16.053" Y="5.007" />
+        <Point X="16.053" Y="5.5" />
       </Path>
     </InheritanceLine>
+    <AssociationLine Name="EEGDataForPlot" Type="EEGProcessing.EEGPlotData" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.375" Y="5.5" />
+        <Point X="17.375" Y="5.125" />
+        <Point X="20.875" Y="5.125" />
+        <Point X="20.875" Y="5.5" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>ABQIAQAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABQJAQAAAACAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGLerpRuntime.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="EEGDataForPlot" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="EEGThread">
-    <Position X="15.75" Y="5.25" Width="2" />
+    <Position X="10.25" Y="9" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAgACAIAAAAAAAAAgIAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAEAAAACAAAAAAgACAIAAAAAAAAAgIAAAAAAQAAAA=</HashCode>
       <FileName>Assets\Scripts\EEG\EEGThread.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ThreadLoader">
-    <Position X="13.25" Y="3.75" Width="1.75" />
-    <InheritanceLine Type="UnityEngine.MonoBehaviour" FixedFromPoint="true">
+    <Position X="13" Y="5.5" Width="1.75" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
         <Point X="17.25" Y="4.108" />
-        <Point X="17.25" Y="4.375" />
-        <Point X="15.375" Y="4.375" />
-        <Point X="15.375" Y="3.375" />
-        <Point X="14.125" Y="3.375" />
-        <Point X="14.125" Y="3.75" />
+        <Point X="17.25" Y="5.007" />
+        <Point X="13.875" Y="5.007" />
+        <Point X="13.875" Y="5.5" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -94,7 +100,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="libStreamSDK.NativeThinkgear">
-    <Position X="9.5" Y="1.5" Width="3" />
+    <Position X="9.5" Y="0.75" Width="3" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -128,6 +134,13 @@
   <Class Name="UnityEngine.MonoBehaviour">
     <Position X="15.75" Y="0.5" Width="3" />
     <TypeIdentifier />
+  </Class>
+  <Class Name="EEGProcessing.EEGPlotData">
+    <Position X="19.75" Y="5.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAEAAAAgAAAEAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EEG\EEGFilters.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Enum Name="EEGProcessing.SplitType">
     <Position X="14.5" Y="11.75" Width="1.5" />

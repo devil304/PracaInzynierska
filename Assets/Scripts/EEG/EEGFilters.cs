@@ -219,5 +219,5 @@ namespace EEGProcessing
         }
     }
 
-    public enum SplitType { Attension, Meditation };
+    public enum SplitType { Attention, Meditation };
 }

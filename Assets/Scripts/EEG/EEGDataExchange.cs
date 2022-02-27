@@ -13,9 +13,9 @@ public static class EEGDataExchange
 
     public static string DataInfo="";
 
-    public volatile static float Raw, Poor, Attension, Meditation;
-    public volatile static float RawAttension, RawMeditation;
-    public static float GameAttension, GameMeditation;
+    public volatile static float Raw, Poor, Attention, Meditation;
+    public volatile static float RawAttention, RawMeditation;
+    public static float GameAttention, GameMeditation;
 
     public static Action OnEEGUpdate;
 
@@ -26,9 +26,9 @@ public static class EEGDataExchange
 
     public static void SetNewVal(SplitType ValType, float newVal)
     {
-        if (ValType == SplitType.Attension)
+        if (ValType == SplitType.Attention)
         {
-            Attension = newVal;
+            Attention = newVal;
         }
         else
         {

@@ -1,16 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="EEGDataAnalizerVisual.App">
-    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Position X="19.25" Y="1" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAIAAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EEGDataAnalizerVisual.MainWindow">
-    <Position X="2" Y="2" Width="2.5" />
+    <Position X="10.5" Y="1" Width="1.5" />
+    <AssociationLine Name="Data" Type="EEGDataAnalizer.MeasuredDataConteiner" FixedToPoint="true">
+      <Path>
+        <Point X="11.438" Y="3.261" />
+        <Point X="11.438" Y="4" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAgAAAAAAFAAIAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -19,27 +25,121 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="EEGDataAnalizerVisual.MainViewModel">
-    <Position X="4.75" Y="0.5" Width="1.75" />
+    <Position X="13.5" Y="9" Width="1.75" />
+    <AssociationLine Name="MyModel" Type="OxyPlot.PlotModel" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15.25" Y="9.276" />
+        <Point X="17.375" Y="9.276" />
+        <Point X="17.375" Y="8" />
+        <Point X="17.75" Y="8" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MyModel" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="EEGDataAnalizer.DataModel">
-    <Position X="7.5" Y="0.5" Width="3.25" />
+    <Position X="10.25" Y="10.75" Width="3.25" />
     <TypeIdentifier />
   </Class>
   <Class Name="EEGDataAnalizer.MeasuredDataConteiner">
-    <Position X="1.75" Y="4.5" Width="3" />
+    <Position X="10" Y="4" Width="3" />
     <TypeIdentifier />
   </Class>
   <Class Name="EEGDataAnalizer.MeasuredData">
-    <Position X="8" Y="2" Width="2.5" />
+    <Position X="10" Y="6.5" Width="2.5" />
     <TypeIdentifier />
   </Class>
   <Class Name="EEGDataAnalizer.MeasuredDataRaw">
-    <Position X="5" Y="2.75" Width="2.5" />
+    <Position X="14.5" Y="10.5" Width="2.5" />
     <TypeIdentifier />
+  </Class>
+  <Class Name="EEGDataAnalizer.EEGPlotData">
+    <Position X="13.5" Y="4" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EEGDataAnalizer.KinectPlotData">
+    <Position X="16.5" Y="4.75" Width="2.5" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Field Name="GameS1" />
+      <Field Name="GameS2" />
+      <Field Name="GameS3" />
+      <Field Name="RawS1" />
+      <Field Name="RawS2" />
+      <Field Name="RawS3" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EEGDataAnalizer.Vector3ToSave">
+    <Position X="20" Y="5" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="OxyPlot.PlotModel" Collapsed="true">
+    <Position X="17.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EEGDataAnalizerVisual.MainWindowEEG">
+    <Position X="13.5" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindowEEG.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Data" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EEGDataAnalizerVisual.MainViewModelEEG">
+    <Position X="20.25" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindowEEG.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MyModel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EEGDataAnalizerVisual.MainWindowKinect" BaseTypeListCollapsed="true">
+    <Position X="16.75" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindowKinect.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Data" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.12" />
+  </Class>
+  <Class Name="EEGDataAnalizerVisual.MainViewModelKinect">
+    <Position X="13.75" Y="7.25" Width="2" />
+    <AssociationLine Name="MyModel" Type="OxyPlot.PlotModel" FixedToPoint="true">
+      <Path>
+        <Point X="15.75" Y="7.562" />
+        <Point X="17.75" Y="7.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindowKinect.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MyModel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EEGDataAnalizerVisual.MainViewModelKinectPost">
+    <Position X="17.5" Y="10.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindowKinect.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MyModel" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class pullEEG : MonoBehaviour
 {
-    [SerializeField] float attensionThreshold = 10f;
+    [SerializeField] float attentionThreshold = 10f;
     [SerializeField] float decreaseTime = 2f;
     [SerializeField] Rigidbody rb;
     [SerializeField] float speedMultiplier = 5f;
@@ -56,9 +56,9 @@ public class pullEEG : MonoBehaviour
 
     private void NewEEGData()
     {
-        if (EEGDataExchange.GameAttension >= attensionThreshold)
+        if (EEGDataExchange.GameAttention >= attentionThreshold)
         {
-            speed = EEGDataExchange.GameAttension;
+            speed = EEGDataExchange.GameAttention;
         }
     }
 

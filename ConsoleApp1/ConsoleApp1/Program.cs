@@ -27,14 +27,14 @@ namespace MyApp // Note: actual namespace depends on the project name.
             random = new Random(DateTime.UtcNow.Millisecond);
             string path = @"G:\PracaInzynierska\PracaInzynierska\EEGDataCollectorCompiled\Files\Justynka.eegm";
             Data = DataModel.DeserializeXMLFile(path);
-            Console.WriteLine(Data[0].Data[0].Attension);
+            Console.WriteLine(Data[0].Data[0].Attention);
             md = new List<MeasuredData>();
             Array.ForEach(Data, d => md.AddRange(d.Data));
             Console.WriteLine(md.Count());
             //Roots = RootsGen(200,128);
             Roots = SaveSystem.LoadFile("TestTrees");
             List<float[]> dataPair = new List<float[]>();
-            md.ForEach(d=>dataPair.Add(new float[] {d.Attension,d.Meditation }));
+            md.ForEach(d=>dataPair.Add(new float[] {d.Attention,d.Meditation }));
             var trees = Roots.Shuffle().ToList();
             List<KeyValuePair<int,float>> scores = new List<KeyValuePair<int, float>>();
             for (int j = 0; j < dataPair.Count; j++)
@@ -103,13 +103,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 return d;
             }
 
-            SplitType st = random.Next(2) == 0 ? SplitType.Attension : SplitType.Meditation;
+            SplitType st = random.Next(2) == 0 ? SplitType.Attention : SplitType.Meditation;
             float minVal,maxVal;
-            minVal = datas.ToList().Min(d => st == SplitType.Attension ? d.Attension : d.Meditation);
-            maxVal = datas.ToList().Max(d => st == SplitType.Attension ? d.Attension : d.Meditation);
+            minVal = datas.ToList().Min(d => st == SplitType.Attention ? d.Attention : d.Meditation);
+            maxVal = datas.ToList().Max(d => st == SplitType.Attention ? d.Attention : d.Meditation);
             var splitVal = random.Next((int)minVal,(int)maxVal+1);
-            var datasBelow = datas.Where(d => (st == SplitType.Attension ? d.Attension : d.Meditation) < splitVal).ToArray();
-            var datasAbove = datas.Where(d => (st == SplitType.Attension ? d.Attension : d.Meditation) >= splitVal).ToArray();
+            var datasBelow = datas.Where(d => (st == SplitType.Attention ? d.Attention : d.Meditation) < splitVal).ToArray();
+            var datasAbove = datas.Where(d => (st == SplitType.Attention ? d.Attention : d.Meditation) >= splitVal).ToArray();
             Node n = new Node();
             n.Left = TreeGen(datasBelow,treeDepth+1,treeLimit);
             n.Right = TreeGen(datasAbove,treeDepth+1,treeLimit);
@@ -230,5 +230,5 @@ namespace MyApp // Note: actual namespace depends on the project name.
         }
     }
 
-    public enum SplitType {Attension, Meditation };
+    public enum SplitType {Attention, Meditation };
 }

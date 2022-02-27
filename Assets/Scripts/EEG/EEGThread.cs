@@ -145,21 +145,21 @@ public class EEGThread
                     var Poor = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_POOR_SIGNAL);
                     sb.Append($"Poor status: {statusP}, Poor data: {Poor}; \n");
                     var statusA = NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_ATTENTION);
-                    var Attension = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_ATTENTION);
-                    sb.Append($"Attension status: {statusA}, Attension data: {Attension}; \n");
+                    var Attention = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_ATTENTION);
+                    sb.Append($"Attention status: {statusA}, Attention data: {Attention}; \n");
                     var statusM = NativeThinkgear.TG_GetValueStatus(connectionID, NativeThinkgear.DataType.TG_DATA_MEDITATION);
                     var Meditation = NativeThinkgear.TG_GetValue(connectionID, NativeThinkgear.DataType.TG_DATA_MEDITATION);
                     sb.Append($"Meditation status: {statusM}, Meditation data: {Meditation}; \n");
-                    if(Attension!=EEGDataExchange.RawAttension || Meditation != EEGDataExchange.RawMeditation)
+                    if(Attention!=EEGDataExchange.RawAttention || Meditation != EEGDataExchange.RawMeditation)
                     {
-                        EEGDataExchange.RawAttension = Attension;
+                        EEGDataExchange.RawAttention = Attention;
                         EEGDataExchange.RawMeditation = Meditation;
                     }
                     if (Poor <= 30)
                     {
                         if (Math.Abs(Raw) >= 360 || Math.Abs(Raw - EEGDataExchange.Raw) >= 360)
                             discard = true;
-                        if (Attension != oldAttention || Meditation != oldMeditation)
+                        if (Attention != oldAttention || Meditation != oldMeditation)
                         {
                             EEGDataExchange.OnEEGUpdate?.Invoke();
                             Debug.Log("NotSame");
@@ -171,11 +171,11 @@ public class EEGThread
                             }
                             else
                             {
-                                var score = EEGFilters.Score(new float[] { Attension, Meditation });
+                                var score = EEGFilters.Score(new float[] { Attention, Meditation });
                                 LastMessage = score.ToString() + " : " + EEGFilters.Threshold.ToString() + "\n";
                                 if (score < EEGFilters.Threshold)
                                 {
-                                    EEGDataExchange.SetNewVal(SplitType.Attension, Attension);
+                                    EEGDataExchange.SetNewVal(SplitType.Attention, Attention);
                                     EEGDataExchange.SetNewVal(SplitType.Meditation, Meditation);
                                     EEGDataExchange.OnEEGUpdate?.Invoke();
                                 }
@@ -186,9 +186,9 @@ public class EEGThread
                             sb.Append("Same \n");
                         }*/
                     }
-                    sb.Append($"Calculated Attension: {EEGDataExchange.Attension}, calculated Meditation: {EEGDataExchange.Meditation}\n");
+                    sb.Append($"Calculated Attention: {EEGDataExchange.Attention}, calculated Meditation: {EEGDataExchange.Meditation}\n");
                     sb.Append(LastMessage);
-                    oldAttention = Attension;
+                    oldAttention = Attention;
                     oldMeditation = Meditation;
                     EEGDataExchange.DataInfo = sb.ToString();
                     EEGDataExchange.Raw = Raw;

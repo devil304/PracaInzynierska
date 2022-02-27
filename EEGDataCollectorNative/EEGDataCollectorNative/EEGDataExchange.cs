@@ -18,7 +18,7 @@ public static class EEGDataExchange
 
     public volatile static bool EEGInited = false;
 
-    public volatile static float Raw, Poor, Attension, Meditation;
+    public volatile static float Raw, Poor, Attention, Meditation;
 
     public volatile static bool CollectData, Collecting = false;
 
@@ -90,16 +90,16 @@ public class MeasuredDataConteiner
 public class MeasuredData
 {
     public DateTime Time;
-    public float PoorSignal, Attension, Meditation;
+    public float PoorSignal, Attention, Meditation;
     public float Delta, Theta, Alpha1, Alpha2, Beta1, Beta2, Gamma1, Gamma2;
 
     public MeasuredData() { }
 
-    public MeasuredData(DateTime time, float poorSignal, float attension, float meditation, float delta, float theta, float alpha1, float alpha2, float beta1, float beta2, float gamma1, float gamma2)
+    public MeasuredData(DateTime time, float poorSignal, float attention, float meditation, float delta, float theta, float alpha1, float alpha2, float beta1, float beta2, float gamma1, float gamma2)
     {
         Time = time;
         PoorSignal = poorSignal;
-        Attension = attension;
+        Attention = attention;
         Meditation = meditation;
         Delta = delta;
         Theta = theta;

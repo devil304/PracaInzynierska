@@ -14,6 +14,25 @@ namespace EEGDataAnalizerVisual
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Exit(object sender, ExitEventArgs e)
+        {
 
+        }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            MainWindow = new MainWindow();
+            if(MainWindow.IsInitialized)
+                MainWindow.Show();
+        }
+
+        public void CloseOpenWindow(bool windowOpend = false)
+        {
+            WindowCount += windowOpend ? 1 : -1;
+            if (WindowCount == 0)
+                Shutdown();
+        }
+
+        int WindowCount = 0;
     }
 }
