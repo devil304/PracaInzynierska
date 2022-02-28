@@ -1,4 +1,0 @@
-- cross check z poprzednim dużym pakietem
-- isolation Forest detekcja naomali i nie branie ich pod uwagę (będę wtedy używać starej wartości)
-- detekcja mrugnięcia
-- może zastosuję interpolację danych co spowoduje 1 sekundowy lag, ale może dawać wrażenie płynniejszej kontroli
